@@ -1,0 +1,390 @@
+@use "../../global" as global;
+.p-reports {
+    &__inner {
+        padding: global.vwmax(67) 0 global.vwmax(64) 0;
+        background-color: global.$color-background-lightgray;
+        .p-button {
+            margin: global.vwmax(63) auto 0 auto;
+            max-height: global.vwmax(62);
+            transform: translate(-1px, 0);
+        }
+    }
+    &__ranking {
+        &__wrapper {
+            max-width: global.vwmax(1220);
+            margin: global.vwmax(61) auto 0;
+            font-family: global.$font-title;
+            color: global.$color-font-lightblack;
+            .p-headline__h3 {
+                margin-left: global.vwmax(35);
+            }
+            .item__wrapper {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                //max-width: 1180px;
+                column-gap: global.vwmax(24);
+                row-gap: global.vwmax(32);
+                margin: auto;
+                margin-top: global.vwmax(24);
+            }
+        }
+    }
+    &__plan {
+        &__wrapper {
+            max-width: global.vwmax(1240);
+            margin: global.vwmax(57) auto 0;
+            transform: translate(global.vwmax(2), 0); //  何故かずれるので調整
+            padding-top: global.vwmax(63);
+            padding-bottom: 0; //global.vwmax(65);
+            font-family: global.$font-title;
+            color: global.$color-font-lightblack;
+            background-color: global.$color-white;
+            .c-headline__h3 {
+                margin-left: global.vwmax(40);
+            }
+            .item__wrapper {
+                max-width: global.vwmax(1200);
+                margin: global.vwmax(65) auto 0;
+                padding-top: global.vwmax(66);
+                //padding-bottom: global.vwmax(84);
+                background-color: global.$color-sky;
+                ul {
+                    display: flex;
+                    flex-direction: row;
+                    //  justify-content: center; //space-evenly;
+                    gap: global.vwmax(32);
+                    margin-left: global.vwmax(-4);
+                    //  center中心型でうまくきまらない場合一度
+                    //  margin-left: 47px;
+                    justify-content: center; //flex-start;
+                    li {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-evenly;
+                        align-items: center;
+                        .c-headline__h4 {
+                            height: global.vwmax(62);
+                            &.no01 {
+                                //margin-left: 18px;
+                                &:before {
+                                    left: -1.4em;
+                                }
+                            }
+                            &.no02 {
+                                margin-left: global.vwmax(-19);
+                                letter-spacing: -0.05em;
+                                &:before {
+                                    left: -0.6em;
+                                }
+                            }
+                            &.no03 {
+                                margin-left: global.vwmax(23); //6px;
+                                letter-spacing: -0.01em;
+                                &:before {
+                                    left: -0.6em;
+                                }
+                            }
+                        }
+                        .p-reportcard {
+                            margin-top: global.vwmax( 8);
+                        }
+                    }
+                    .item {
+                        margin-top: global.vwmax(8);
+                        width: global.vwmax(346);
+                        height: global.vwmax(552);
+                        background-color: global.$color-white;
+                    }
+                }
+            }
+        }
+    }
+    &__new {
+        &__wrapper {
+            margin-top: global.vwmax(66);
+            font-family: global.$font-title;
+            color: global.$color-font-lightblack;
+            .c-headline__h3 {
+                max-width: global.vwmax(1240);
+                margin: auto;
+                left: global.vwmax(16);
+                //padding-left: 40px;
+                //margin-top: 63px;
+                //padding-top: 63px;
+            }
+            .item__wrapper {
+                max-width: 100%;
+                margin: global.vwmax(63) auto 0px;
+                padding-bottom: global.vwmax(2);
+                //padding-top: 84px;
+                //padding-bottom: 84px;
+                ul {
+                    //display: flex;
+                    //flex-direction: row;
+                    //justify-content: space-evenly;
+                    .newitem {
+                        width: global.vwmax(348);
+                        height: global.vwmax(553);
+                        background-color: global.$color-white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.p-reports__populer-button__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: global.vwmax(84);
+    padding-top: global.vwmax(65);
+    padding-bottom: global.vwmax(65);
+    background-color: global.$color-white;
+    .p-button {
+        margin: 0;
+        //margin-top: global.vwmax(65);
+        padding-right: global.vwmax(116);
+        max-height: global.vwmax(60);
+        transform: none;
+        margin-left: 0px;
+    }
+}
+
+.p-reports__new-button__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .p-button {
+        margin-top: global.vwmax(61);
+        max-height: global.vwmax(62);
+        //margin: 65px auto 0 auto;
+        left: global.vwmax(34);
+        transform: none;
+        //max-height: 60px;
+    }
+}
+
+//----------------------------------------
+//  レスポンシブ
+//----------------------------------------
+@include global.mq('sp') {
+    .p-reports {
+        &__inner {
+            padding: global.vwsp(73) 0 global.vwsp(64) 0;
+            background-color: global.$color-background-lightgray;
+            //  何かで位置をずらされているので対処
+            //transform: translate(33px, 0);
+            .p-button {
+                margin: global.vwsp(48) auto 0 auto;
+                height: global.vwsp(80);
+                max-height: global.vwsp(80);
+                transform: translate(-1px, 0);
+                width: global.vwsp(315);
+                font-size: global.vwsp(16);
+                padding: global.vwsp(16) 0 global.vwsp(14) global.vwsp(26);
+                line-height: global.vwsp(24);
+                &:before {
+                    right: global.vwsp(23);
+                    width: global.vwsp(28);
+                    top: global.vwsp(42);
+                }
+                &:after {
+                    right: global.vwsp(23);
+                    width: global.vwsp(12);
+                }
+            }
+        }
+        &__ranking {
+            &__wrapper {
+                max-width: 100%; //global.vwsp(1220);
+                margin: global.vwsp(35) auto 0;
+                font-family: global.$font-title;
+                color: global.$color-font-lightblack;
+                .p-headline__h3 {
+                    margin-left: global.vwsp(0);
+                }
+                .item__wrapper {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    justify-content: flex-start;
+                    align-items: center;
+                    //max-width: 1180px;
+                    column-gap: global.vwsp(24);
+                    row-gap: global.vwsp(32);
+                    margin: auto;
+                    margin-top: global.vwsp(27);
+                    margin-left: global.vwsp(16);
+                }
+                //  SPはスライダー表示
+                .splide {
+                    margin-top: 27px;
+                    width: 100%;
+                    height: 100%;
+                    .splide__track--draggable {
+                        //    margin-left: 16px;
+                    }
+                    .splide__list {}
+                }
+            }
+        }
+        &__plan {
+            &__wrapper {
+                max-width: calc( 100% - global.vwsp(48));
+                margin: global.vwsp(64) global.vwsp(26) 0 global.vwsp(22);
+                transform: translate(global.vwsp(2), 0); //  何故かずれるので調整
+                padding-top: global.vwsp(52);
+                padding-bottom: global.vwsp(47);
+                font-family: global.$font-title;
+                color: global.$color-font-lightblack;
+                background-color: global.$color-white;
+                .c-headline__h3 {
+                    margin-left: global.vwsp(34);
+                }
+                .item__wrapper {
+                    max-width: calc( 100% - global.vwsp( 21));
+                    margin: global.vwsp(26) global.vwsp(8) 0 global.vwsp(13);
+                    padding-top: global.vwsp(30);
+                    padding-bottom: global.vwsp(48);
+                    background-color: global.$color-sky;
+                    ul {
+                        display: flex;
+                        flex-direction: column;
+                        //  justify-content: center; //space-evenly;
+                        gap: global.vwsp(8);
+                        row-gap: global.vwsp(8);
+                        margin-left: global.vwsp(-4);
+                        //  center中心型でうまくきまらない場合一度
+                        //  margin-left: 47px;
+                        justify-content: center; //flex-start;
+                        li {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-evenly;
+                            align-items: center;
+                            //  恐らく幅一杯、背景のボックスが位置固定で
+                            //  文字列がセンターかと思う
+                            .c-headline__h4 {
+                                display: block;
+                                width: 100%;
+                                text-align: center;
+                                margin: auto;
+                                height: global.vwsp(62);
+                                left: global.vwsp(2);
+                                &.no01,
+                                &.no02,
+                                &.no03 {
+                                    padding-top: 18px;
+                                    margin-left: 0;
+                                    &:before {
+                                        left: global.vwsp(77);
+                                        top: global.vwsp(15);
+                                    }
+                                }
+                                &.no01 {
+                                    &:before {
+                                        //left: -1.4em;
+                                    }
+                                }
+                                &.no02 {
+                                    letter-spacing: -0.05em;
+                                    &:before {
+                                        //left: global.vwsp(-19);
+                                    }
+                                }
+                                &.no03 {
+                                    padding-top: global.vwsp(3);
+                                    //margin-left: global.vwsp(23); //6px;
+                                    letter-spacing: -0.01em;
+                                    &:before {
+                                        //left: -0.6em;
+                                    }
+                                }
+                            }
+                            .p-reportcard {
+                                margin-top: global.vwsp( 1);
+                            }
+                        }
+                        .item {
+                            margin-top: global.vwsp(8);
+                            width: global.vwsp(346);
+                            height: global.vwsp(552);
+                            background-color: global.$color-white;
+                        }
+                    }
+                }
+            }
+        }
+        &__new {
+            &__wrapper {
+                margin-top: global.vwsp(51);
+                font-family: global.$font-title;
+                color: global.$color-font-lightblack;
+                .c-headline__h3 {
+                    max-width: global.vwsp(1240);
+                    margin: auto;
+                    left: global.vwsp(33);
+                    //padding-left: 40px;
+                    //margin-top: 63px;
+                    //padding-top: 63px;
+                }
+                .item__wrapper {
+                    max-width: 100%;
+                    margin: global.vwsp(26) auto 0px;
+                    padding-bottom: global.vwsp(2);
+                    //padding-top: 84px;
+                    //padding-bottom: 84px;
+                    ul {
+                        //display: flex;
+                        //flex-direction: row;
+                        //justify-content: space-evenly;
+                        .newitem {
+                            //width: global.vwsp(348);
+                            height: global.vwsp(516);
+                            background-color: global.$color-white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .p-reports__populer-button__wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 0;
+        padding-bottom: 0;
+        background-color: transparent;
+        //padding-bottom: global.vwsp(48);
+        .p-button {
+            width: global.vwsp(298);
+            height: global.vwsp(80);
+            max-height: global.vwsp(80);
+            margin: 0;
+            //margin-top: global.vwsp(65);
+            padding-right: global.vwsp(84);
+            transform: none;
+            margin-left: 0px;
+        }
+    }
+    .p-reports__new-button__wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: global.vwsp(-22);
+        margin-top: global.vwsp(34);
+        //
+        .p-button {
+            width: global.vwsp(235);
+            height: global.vwsp(80);
+            max-height: global.vwsp(80);
+            margin: 0;
+            //margin-top: global.vwsp(65);
+            padding-right: global.vwsp(84);
+            transform: none;
+        }
+    }
+}

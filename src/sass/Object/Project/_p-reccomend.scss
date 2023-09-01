@@ -1,0 +1,280 @@
+@use "../../global" as global;
+.p-reccomend {
+    &__inner {
+        &.plan {
+            margin-top: global.vwmax(5);
+        }
+        &.planner {
+            margin-top: global.vwmax(8);
+            .c-headline__h2 {
+                span {
+                    margin-left: global.vwmax(43);
+                }
+            }
+        }
+        //max-width: 1240px;
+        //margin: auto;
+        //margin: 64px 0;
+        //$col : #f0f0f0;
+        $col: global.$color-sky;
+        &.sectionpaper {
+            //  方眼紙模様に必須のスタイル
+            background-image: linear-gradient(0deg, transparent calc(100% - 1px), $col calc(100% - 1px)), linear-gradient(90deg, transparent calc(100% - 1px), $col calc(100% - 1px));
+            background-size: global.vwmax(16) global.vwmax(16);
+            background-repeat: repeat;
+            background-position: center center;
+        }
+        background-color: global.$color-background;
+        //  上下の余白
+        padding-top: global.vwmax(58);
+        padding-bottom: global.vwmax(64);
+        .p-button {
+            margin: global.vwmax(64) auto 0 auto;
+            max-height: global.vwmax(62);
+            text-align: left;
+            padding-right: global.vwmax(104);
+            left: global.vwmax(9);
+        }
+    }
+    //  Reccomend Plan
+    &-items__wrapper {
+        position: relative;
+        width: 100%;
+        max-width: global.vwmax(1240);
+        margin: auto;
+        left: global.vwmax(2);
+        margin-top: global.vwmax(59);
+        padding: global.vwmax(59) global.vwmax(40) global.vwmax(38) global.vwmax(34);
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center; //space-evenly;
+        align-items: center;
+        background-color: global.$color-sky;
+        row-gap: global.vwmax(42);
+        column-gap: global.vwmax(70);
+        .item {
+            width: global.vwmax(342); //100%;
+            //max-width: global.vw(342);
+            height: global.vwmax(125); //100%;
+            //max-height: 125px;
+            background-color: global.$color-white;
+            &.no04 {
+                margin-right: global.vwmax(6);
+            }
+            &.no05 {
+                margin-left: global.vwmax(6);
+            }
+        }
+    }
+    //  Reccomend Planner
+    &-ranking__wrapper {
+        margin-top: global.vwmax(56);
+        .p-headline__h3 {
+            margin-left: 8vw;
+            span {
+                font-size: 0.75em;
+                letter-spacing: 0.11em;
+            }
+        }
+        .item__wrapper {
+            margin-top: global.vwmax(34);
+            .itemlist {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                column-gap: global.vwmax(24);
+            }
+        }
+    }
+    &-new__wrapper {
+        margin-top: global.vwmax(62);
+        .p-headline__h3 {
+            margin-left: global.vwmax( 116);
+            span {
+                font-size: global.vwmax( 18);
+                letter-spacing: 0.11em;
+                margin-top: global.vwmax( 2);
+                margin-left: global.vwmax(6);
+            }
+        }
+        .item__wrapper {
+            margin: auto;
+            margin-top: global.vwmax(33);
+            max-width: global.vwmax(1243); //100%;
+            //margin: 64px auto 0;
+            padding-top: global.vwmax(49);
+            padding-bottom: global.vwmax(43);
+            background-color: global.$color-sky;
+            column-gap: global.vwmax(35);
+            ul {
+                //display: flex;
+                //flex-direction: row;
+                //justify-content: space-evenly;
+                .newitem {
+                    width: global.vwmax(397);
+                    height: global.vwmax(412);
+                    background-color: global.$color-white;
+                }
+            }
+        }
+    }
+}
+
+.p-reccomend__button__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+//----------------------------------------
+//  レスポンシブ
+//----------------------------------------
+@include global.mq('sp') {
+    .p-reccomend {
+        &__inner {
+            &.plan {
+                margin-top: global.vwsp(-17);
+            }
+            &.planner {
+                margin-top: global.vwsp(14);
+                .c-headline__h2 {
+                    span {
+                        margin-left: global.vwsp(-2);
+                        letter-spacing: global.vwsp(-0.5);
+                    }
+                }
+            }
+            $col: global.$color-sky;
+            &.sectionpaper {
+                background-size: global.vwsp(16) global.vwsp(16);
+            }
+            background-color: global.$color-background;
+            //  上下の余白
+            padding-top: global.vwsp(58);
+            padding-bottom: global.vwsp(72);
+            .p-button {
+                margin: global.vwsp(64) auto 0 auto;
+                max-height: global.vwsp(62);
+                text-align: left;
+                padding-right: global.vwsp(104);
+                left: global.vwsp(9);
+            }
+        }
+        //  Reccomend Plan
+        &-items__wrapper {
+            position: relative;
+            width: 100%;
+            max-width: global.vwsp(337);
+            margin: auto;
+            left: global.vwsp(-1);
+            margin-top: global.vwsp(56);
+            padding: global.vwsp(39) global.vwsp(16) global.vwsp(24) global.vwsp(23);
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            justify-content: center; //space-evenly;
+            align-items: center;
+            background-color: global.$color-sky;
+            row-gap: global.vwsp(39);
+            column-gap: global.vwsp(70);
+            .item {
+                width: global.vwsp(292);
+                height: global.vwsp(107);
+                &.no04 {
+                    margin-right: global.vwsp(0);
+                }
+                &.no05 {
+                    margin-left: global.vwsp(0);
+                    .reccomendplan__data {
+                        .title {
+                            line-height: global.vwsp(27);
+                            margin-top: global.vwsp(-1);
+                        }
+                    }
+                }
+            }
+        }
+        //  Reccomend Planner
+        &-ranking__wrapper {
+            margin-top: global.vwsp(33);
+            .p-headline__h3 {
+                margin-left: global.vwsp(31);
+                span {
+                    margin-left: global.vwsp(7);
+                    font-size: global.vwsp(16);
+                    letter-spacing: global.vwsp(-0.08);
+                }
+            }
+            .item__wrapper {
+                margin-top: global.vwsp(29);
+                .itemlist {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    column-gap: global.vwsp(24);
+                }
+            }
+        }
+        &-new__wrapper {
+            margin-top: global.vwsp(53);
+            .p-headline__h3 {
+                margin-left: global.vwsp( 40);
+                span {
+                    font-size: global.vwsp( 15);
+                    letter-spacing: 0.11em;
+                    margin-top: global.vwsp( 0);
+                    margin-left: global.vwsp(8);
+                }
+            }
+            .item__wrapper {
+                margin: auto;
+                margin-top: global.vwsp(26);
+                max-width: 100%; //global.vwsp(1243); //100%;
+                //margin: 64px auto 0;
+                padding-top: global.vwsp(49);
+                padding-bottom: global.vwsp(43);
+                background-color: global.$color-sky;
+                column-gap: global.vwsp(35);
+                ul {
+                    //display: flex;
+                    //flex-direction: row;
+                    //justify-content: space-evenly;
+                    .newitem {
+                        width: global.vwsp(297);
+                        height: global.vwsp(469);
+                        background-color: global.$color-white;
+                    }
+                }
+            }
+        }
+    }
+    .p-reccomend__button__wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: global.vwsp(5);
+        margin-bottom: global.vwsp(56);
+        .p-button {
+            width: global.vwsp(251);
+            height: global.vwsp(56);
+            margin-left: global.vwsp(72);
+            font-size: global.vwsp(16);
+            padding-left: global.vwsp(24);
+            padding-top: global.vwsp(25);
+            padding-right: global.vwsp(10);
+            &:before {
+                right: global.vwsp(24);
+                width: global.vwsp(27);
+                top: 54%;
+            }
+            &:after {
+                right: global.vwsp(24);
+                width: global.vwsp(12);
+                top: 50%;
+            }
+        }
+    }
+}

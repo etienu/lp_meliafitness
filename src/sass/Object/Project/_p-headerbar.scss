@@ -1,0 +1,107 @@
+@use "../../global" as g;
+.p-headerbar {
+    width: 100%;
+    height: 120px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.90);
+}
+
+.p-headerbar__menulist {
+    width: fit-content;
+    font-family: g.$font-Lora;
+    &.left {
+        //margin-left: 191px;
+    }
+    &.right {
+        margin-left: 24px;
+        ul {
+            gap: g.vwmax(31.5);
+        }
+    }
+    ul {
+        display: flex;
+        flex-direction: row;
+        gap: g.vwmax(31);
+    }
+}
+
+.p-headerbar__menuitem {
+    font-size: g.vwclampmax(10, 15);
+    letter-spacing: g.rem(1.4);
+    white-space: nowrap;
+    transition: color 0.3s;
+    &:hover {
+        color: g.$color-brown;
+    }
+}
+
+.p-headerbar__logo {
+    margin-left: g.vwmax(22);
+    width: auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.p-headerbar__buttonarea {
+    margin-left: 57px;
+    font-family: g.$baseFont;
+    .p-hamburger__wrapper {
+        display: none;
+    }
+}
+
+//============================================
+//  レスポンシブ
+//============================================
+@include g.mq('-lg') {
+    .p-headerbar__logo {
+        //margin-left: g.vwsp( 20);
+        width: 76px;
+        height: 54px;
+        min-width: 76px;
+        min-height: 54px;
+    }
+    .p-headerbar__menulist {
+        margin-left: 20px;
+    }
+    .p-headerbar__buttonarea {
+        margin-left: 20px;
+        margin-right: 20px;
+        .p-button__cv {
+            padding: 0 18px 0 20px;
+            //padding: 0 auto 0 auto;
+            font-size: g.rem(14);
+            white-space: nowrap;
+        }
+    }
+}
+
+@include g.mq('-md') {
+    .p-headerbar {
+        height: 68px;
+        justify-content: space-between;
+    }
+    .p-headerbar__menulist {
+        display: none;
+    }
+    .p-headerbar__logo {
+        margin-left: g.vwsp( 20);
+        width: 76px;
+        height: 54px;
+    }
+    .p-headerbar__buttonarea {
+        margin-left: 0px;
+        margin-right: g.vwsp(0);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        .p-hamburger__wrapper {
+            display: block;
+        }
+    }
+}

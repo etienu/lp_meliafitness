@@ -1,0 +1,263 @@
+@use "../../global" as global;
+//  拡大制限をする場合、p_reccomend.scss中のwrapperサイズも要修正
+//
+//  vwmax版( 拡大率制限あり )
+.p-reccomendplancard {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+    transition: 0.3s;
+    cursor: pointer;
+    //  枠
+    &:before {
+        position: absolute;
+        content: "";
+        width: calc( 100% - global.vwmax(14));
+        height: calc( 100% - global.vwmax(14));
+        border: 1px solid global.$color-white;
+        margin: global.vwmax(7) global.vwmax(7) global.vwmax(7);
+        z-index: 2;
+    }
+    //  四角形
+    &:after {
+        position: absolute;
+        content: "";
+        left: global.vwmax( -13);
+        top: global.vwmax( -16);
+        width: calc( global.vwmax( 41));
+        height: calc( global.vwmax( 41));
+        background-color: global.$color-gray;
+        z-index: 1;
+    }
+    //  色指定
+    &.perple {
+        &:after {
+            background-color: global.$color-tag-perple;
+        }
+    }
+    &.blue {
+        &:after {
+            background-color: global.$color-tag-blue;
+        }
+    }
+    &.orange {
+        &:after {
+            background-color: global.$color-tag-orange;
+        }
+    }
+    &.sand {
+        &:after {
+            background-color: global.$color-tag-sand;
+        }
+    }
+    &.green {
+        &:after {
+            background-color: global.$color-tag-green;
+        }
+    }
+    //  イメージ
+    .reccomendplan__image {
+        width: global.vwmax( 125);
+        height: global.vwmax( 125);
+        //transform: translate( 0px, 22px);
+        transition: 0.3s;
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    //  データ
+    .reccomendplan__data {
+        position: relative;
+        //        width: calc( 100% - global.vw( 160) - 33px - 37px);
+        width: calc( global.vwmax( 342 - 125));
+        height: calc( global.vwmax( 125));
+        //        margin: 15px 33px 17px 37px;
+        //background-color: rgba(255, 255, 255, 0.88);
+        padding: global.vwmax(16) global.vwmax(36) global.vwmax(15) global.vwmax(6);
+        //transform: translate( 0px, -11px);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        transition: 0.3s;
+        .title {
+            //width: calc(100% - global.vwmax(15) - global.vwmax(17));
+            width: calc(100%);
+            font-size: global.vwmax(20);
+            line-height: global.vwmax(27);
+            text-align: left;
+            //white-space: nowrap;
+            color: global.$color-gray;
+            text-align: center;
+            margin: auto;
+            transition: 0.3s;
+        }
+        &:before {
+            position: absolute;
+            content: "";
+            width: global.vwmax(46);
+            height: global.vwmax(1);
+            background-color: global.$color-gray;
+            right: global.vwmax( 18);
+            bottom: global.vwmax( 16);
+            transition: 0.3s;
+        }
+        &:after {
+            position: absolute;
+            content: "";
+            width: global.vwmax(8.5);
+            height: global.vwmax(1);
+            background-color: global.$color-gray;
+            right: global.vwmax( 18);
+            bottom: global.vwmax( 18.5);
+            transform: rotate(32.01deg);
+            transition: 0.3s;
+        }
+    }
+    &.hover__reverse {
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.49); //global.$color-gray;
+            //  枠
+            &:before {
+                //border: 1px solid global.$color-gray;
+            }
+            //  四角形
+            &:after {
+                z-index: -1;
+            }
+            .reccomendplan__image {
+                //opacity: 0.6;
+                //background-color: black;
+                filter: brightness(0.3);
+            }
+            .reccomendplan__data {
+                .title {
+                    color: global.$color-white;
+                }
+                &:before {
+                    background-color: global.$color-white;
+                }
+                &:after {
+                    background-color: global.$color-white;
+                }
+            }
+        }
+    }
+}
+
+//----------------------------------------
+//  レスポンシブ
+//----------------------------------------
+@include global.mq('sp') {
+    .p-reccomendplancard {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        z-index: 0;
+        //  枠
+        &:before {
+            position: absolute;
+            content: "";
+            left: 0;
+            width: calc( global.vwsp(98));
+            height: calc( 100% - global.vwsp(16));
+            border: 1px solid global.$color-white;
+            border-right: transparent;
+            margin: global.vwsp(8) global.vwsp(0) global.vwsp(8) global.vwsp(8);
+            z-index: 2;
+        }
+        //  四角形
+        &:after {
+            position: absolute;
+            content: "";
+            left: global.vwsp( -11);
+            top: global.vwsp( -13);
+            width: calc( global.vwsp( 35));
+            height: calc( global.vwsp( 35));
+            background-color: global.$color-gray;
+            z-index: 1;
+        }
+        //  色指定
+        &.perple {
+            &:after {
+                background-color: global.$color-tag-perple;
+            }
+        }
+        &.blue {
+            &:after {
+                background-color: global.$color-tag-blue;
+            }
+        }
+        &.orange {
+            &:after {
+                background-color: global.$color-tag-orange;
+            }
+        }
+        &.sand {
+            &:after {
+                background-color: global.$color-tag-sand;
+            }
+        }
+        &.green {
+            &:after {
+                background-color: global.$color-tag-green;
+            }
+        }
+        //  イメージ
+        .reccomendplan__image {
+            width: global.vwsp( 106);
+            height: global.vwsp( 107);
+        }
+        //  データ
+        .reccomendplan__data {
+            position: relative;
+            width: calc( global.vwsp( 292 - 106));
+            height: calc( global.vwsp( 107));
+            padding: global.vwsp(16) global.vwsp(36) global.vwsp(15) global.vwsp(6);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            .title {
+                width: calc(100%);
+                font-size: global.vwsp(16);
+                line-height: global.vwsp(27);
+                text-align: left;
+                color: global.$color-gray;
+                text-align: center;
+                margin: auto;
+                margin-top: global.vwsp(12);
+                margin-left: global.vwsp(16);
+            }
+            &:before {
+                position: absolute;
+                content: "";
+                width: global.vwsp(40);
+                height: global.vwsp(1);
+                background-color: global.$color-gray;
+                right: global.vwsp( 13);
+                bottom: global.vwsp( 13);
+            }
+            &:after {
+                position: absolute;
+                content: "";
+                width: global.vwsp(8.5);
+                height: global.vwsp(1);
+                background-color: global.$color-gray;
+                right: global.vwsp( 13);
+                bottom: global.vwsp( 15);
+                transform: rotate(32.01deg);
+            }
+        }
+    }
+}

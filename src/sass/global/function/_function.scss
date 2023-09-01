@@ -1,0 +1,182 @@
+@use 'sass:math';
+//  画面幅などの固定変数を使用
+@use "../variable" as g;
+//--------------------------------
+//  単位をのぞいた数値を返します。
+//  https://qiita.com/yuusuke510/items/9053ccf48cda4590ed7f
+//--------------------------------
+@function strip-unit($number) {
+    @if type-of($number)=='number' and not unitless($number) {
+        @return math.div($number, ($number * 0 + 1));
+    }
+    @return $number;
+}
+
+//------------------------------------------------
+//  px->rem変換
+//  $size : px
+//------------------------------------------------
+$baseFontSize: 16;
+@function rem($size) {
+    //$rate: calc( 100 / $viewport);
+    $csize: calc( $size / $baseFontSize);
+    @return $csize * 1rem;
+}
+
+//------------------------------------------------
+//  px->vw変換
+//  $size : px
+//  $viewport : デフォルト引数にカンプ幅を入れる
+//------------------------------------------------
+@function vw($size, $viewport:1440) {
+    $rate: calc( 100 / $viewport);
+    @return $rate * $size * 1vw;
+}
+
+@function vwsp($size, $viewport:375) {
+    //    $rate: calc( 100 / $viewport);
+    @return vw($size, $viewport);
+}
+
+//  最大値指定
+@function vwmax($size, $viewport:1440) {
+    $vp: $viewport;
+    $rate: calc( 100 / $vp);
+    $retvw: $rate * $size * 1vw;
+    //    @return max( $ret, $size);
+    $retpx: $size * 1px;
+    //  数値が0以下のマイナス値ならmax( 数値, 最小 )で最小値設定
+    @if $retpx <=0 {
+        $ret: max( $retvw, $retpx);
+        @return $ret;
+    }
+    //  数値が1以上のプラス値ならmin( 数値, 最大 )で最大値設定
+    @else if 0 < $retpx {
+        $ret: min( $retvw, $retpx);
+        @return $ret;
+    }
+}
+
+@function vwmaxsp($size, $viewport:375) {
+    @return vwmax($size, $viewport);
+}
+
+//  最小、最大値指定、基準値最大
+@function vwclampmax($minsize, $maxsize, $viewport:1440) {
+    $vp: $viewport;
+    $rate: calc( 100 / $vp);
+    $retvw: $rate * $maxsize * 1vw; //基準値が最大
+    $minpx: $minsize * 1px;
+    $maxpx: $maxsize * 1px;
+    $ret: clamp( $minpx, $retvw, $maxpx);
+    @return $ret;
+}
+
+//  最小基準のvwclamp処理
+@function vwclampmin($minsize, $maxsize, $viewport:375) {
+    //    @return vwclampmax($minsize, $maxsize, $viewport);
+    $vp: $viewport;
+    $rate: calc( 100 / $vp);
+    $retvw: $rate * $minsize * 1vw; //基準値が最小
+    $minpx: $minsize * 1px;
+    $maxpx: $maxsize * 1px;
+    $ret: clamp( $minpx, $retvw, $maxpx);
+    @return $ret;
+}
+
+//  フォント等ブラウザにより10pxを下回らない要素用
+//  指定画面幅($viewport)に対して現在の画面幅の割合(vw)で指定のpxの現在倍率を返す
+@function pxscalemax($size, $viewport:1440) {
+    $vp: $viewport;
+    //  (現在幅100vw(1440) / 基準1440) = 1.0
+    //  (現在幅100vw(720) / 基準1440) = 0.5
+    $rate: calc( 100vw / $vp);
+    //  元の数値 × scale倍率
+    $retscale: $size * $rate; // vw→%
+    //$retper: calc($retscale / ($retscale * 0 + 1)); //unittrim($retscale);
+    $retper: strip-unit( $retscale); //単位vwを消す
+    //  最大値
+    $retmaxscale: 1;
+    //    $ret: min( $retscale, $retmaxscale);
+    $ret: min( $retper, $retmaxscale);
+    @return $ret;
+}
+
+//------------------------------------------------
+//  figmaとXDのline-heightはそのまま反映するのではなく
+//  行間の数値÷font-size
+//  行間50、文字サイズ36なら50÷36=1.38
+//  line-height:1.38となる
+//  ？　× 10ぐらいな気がする
+//------------------------------------------------
+@function lh($i_lineheight, $i_fontsize) {
+    @return calc( $i_lineheight / $i_fontsize) * 1px;
+}
+
+@function lhvw($i_lineheight, $i_fontsize, $viewport:1440) {
+    $rate: calc( 100 / $viewport);
+    $size: calc( $i_lineheight / $i_font-size);
+    @return $rate * $size * 1vw;
+}
+
+
+/*--------------------------------------------------
+レスポンシブ計算
+--------------------------------------------------*/
+
+@function clamp_vw($num) {
+    //    $minWidth: 1100; // レイアウトの最小幅
+    //    $maxWidth: 1440; // レイアウトの最大幅
+    $minWidth: 767; // レイアウトの最小幅(タブレット下)
+    $maxWidth: 1024; // レイアウトの最大幅(タブレット上)
+    $val_min: $num * 1px;
+    // 引数で渡された最小数値をvw値に変換
+    $val_vw: round( $num / $minWidth * 100 * 1000) / 1000;
+    // 最大幅でのpx数を算出
+    $val_max: round( $maxWidth * ($val_vw / 100)) * 1px;
+    // clamp()関数に３つの引数を設定して返す - 2番目の引数はここでvw単位を付けている
+    @return clamp( #{$val_min}, #{$val_vw * 1vw}, #{$val_max});
+}
+
+
+/*==========================================================================
+SVGをBase64コードに変換する
+[Html] SVG塗りつぶしの色をBackground-Imageとして扱うときに変更する
+https://code.i-harness.com/ja/q/cbfa3c
+============================================================================*/
+
+@function str-replace($string, $search, $replace: '') {
+    $index: str-index($string, $search);
+    @if $index {
+        @return str-slice($string, 1, $index - 1)+$replace+str-replace( str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+    @return $string;
+}
+
+@function url-encode($string) {
+    $map: ( '%': '%25', '<': '%3C', '>': '%3E', ' ': '%20', '!': '%21', '*': '%2A', "'": '%27', '"': '%22', '(': '%28', ')': '%29', ';': '%3B', ':': '%3A', '@': '%40', '&': '%26', '=': '%3D', '+': '%2B', '$': '%24', ',': '%2C', '/': '%2F', '?': '%3F', '#': '%23', '[': '%5B', ']': '%5D');
+    $new: $string;
+    @each $search,
+    $replace in $map {
+        $new: str-replace($new, $search, $replace);
+    }
+    @return $new;
+}
+
+@function inline-svg($string) {
+    @return url('data:image/svg+xml;charset=utf8,#{url-encode($string)}');
+}
+
+
+/*==========================================================================
+フレキシブルな数字の生成 y=ax+bの形の一次関数グラフの動きをする余白を生成します。
+============================================================================*/
+
+@function flexNumber($minSize,
+$maxSize,
+$minMq,
+$maxMq) {
+    $minSizePX: #{$minSize}px;
+    $minMqPX: #{$minMq}px;
+    @return calc( #{$minSizePX}+((#{$maxSize} - #{$minSize}) * (100vw - #{$minMqPX}) / (#{$maxMq} - #{$minMq})));
+}

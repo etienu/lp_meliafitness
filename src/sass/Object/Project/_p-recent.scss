@@ -1,0 +1,110 @@
+@use "../../global" as global;
+.p-recent__inner {
+    margin: global.vwmax(66) 0 global.vwmax(64) 0;
+}
+
+//  プランナー
+.p-recent__planner__wrapper {
+    margin-top: global.vwmax(61);
+    .splide__list {
+        //gap: 0px 48px;
+    }
+    .splide {
+        //margin-top: global.vwmax(2);
+        padding-top: global.vwmax(24);
+    }
+    //  トラックの位置調整
+    .splide__track {
+        margin-left: global.vwmax(-16);
+    }
+    .p-recent__planner__grid {
+        display: grid;
+        grid-template-columns: global.vwmax(490) global.vwmax(490) global.vwmax(490);
+        //gap: 0px 48px;
+    }
+    .p-recent__planner__griditem {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        max-width: global.vwmax(490);
+        height: global.vwmax(160);
+        background-color: global.$color-white;
+        &:before {
+            position: absolute;
+            left: global.vwmax(7);
+            top: global.vwmax(7);
+            width: calc( 100% - global.vwmax(14));
+            height: calc( 100% - global.vwmax(14));
+            border: 1px solid global.$color-white;
+            z-index: -1;
+        }
+    }
+}
+
+.p-recent__report__wrapper {
+    //  レポート
+    margin-top: global.vwmax(71);
+    .splide {
+        margin-top: global.vwmax(26);
+    }
+    //  トラックの位置調整
+    .splide__track {
+        margin-left: global.vwmax(-70);
+    }
+    .reportitem {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        max-width: global.vwmax(416); // 416
+        height: global.vwmax(430);
+        background-color: global.$color-white;
+    }
+}
+
+//----------------------------------------
+//  レスポンシブ
+//----------------------------------------
+@include global.mq('sp') {
+    .p-recent__inner {
+        margin: global.vwsp(72) 0 global.vwsp(64) 0;
+    }
+    .p-recent__planner__wrapper {
+        margin-top: global.vwsp(34);
+        .splide {
+            padding-top: global.vwsp(27);
+        }
+        //  トラックの位置調整
+        .splide__track {
+            margin-left: global.vwmax(-16);
+        }
+        .p-recent__planner__grid {
+            //display: grid;
+            grid-template-columns: global.vwmax(490) global.vwmax(490) global.vwmax(490);
+            //gap: 0px 48px;
+        }
+        .p-recent__planner__griditem {
+            max-width: none;
+            width: global.vwsp(371);
+            height: global.vwsp(116);
+        }
+    }
+    .p-recent__report__wrapper {
+        //  レポート
+        margin-top: global.vwsp(35);
+        .splide {
+            margin-top: global.vwsp(26);
+        }
+        //  トラックの位置調整
+        .splide__track {
+            margin-left: global.vwsp(16);
+        }
+        .reportitem {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            max-width: global.vwsp(294); // 416
+            height: global.vwsp(437);
+            background-color: global.$color-white;
+        }
+    }
+}

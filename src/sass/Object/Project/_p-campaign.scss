@@ -1,0 +1,424 @@
+@use "../../global" as g;
+// 
+.p-campaign {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.p-campaign__background {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 913px;
+    //background-color: g.$color-lightgray;
+    background-image: url(../images/campaign/campaign01pc.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    aspect-ratio: 1440/913;
+    z-index: -1;
+}
+
+.p-campaign__inner {
+    width: 100%;
+    max-width: 1060px;
+    margin: 96px 20px;
+    padding-top: 60px;
+    padding-bottom: 63px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid g.$color-brown;
+    background-color: rgba(255, 255, 255, 0.95); //g.$color-white;
+    .p-campaign__header {
+        position: relative;
+        width: 100%;
+        margin: auto;
+        max-width: calc( 100% - 176px);
+        font-size: g.vwclampmax(30, 40);
+        line-height: 101px;
+        letter-spacing: g.rem( 6);
+        text-indent: 35px;
+        &:before {
+            position: absolute;
+            width: 100%;
+            left: 2px;
+            top: 0;
+            content: "";
+            border-top: 1px solid g.$color-brown;
+        }
+        &:after {
+            position: absolute;
+            width: 100%;
+            left: 2px;
+            bottom: 4px;
+            content: "";
+            border-bottom: 1px solid g.$color-brown;
+        }
+    }
+    .p-campaign__content {
+        width: 100%;
+        margin: auto;
+        margin-top: 106px;
+        max-width: 602px;
+        display: flex;
+        flex-direction: column;
+        .p-campaign__course {
+            text-align: left;
+            font-size: g.rem(28);
+            letter-spacing: g.rem(4.4);
+        }
+        .p-campaign__items {
+            margin-top: 18px;
+            text-align: left;
+            ul {
+                display: flex;
+                flex-direction: row;
+                .item01 {
+                    display: flex;
+                    flex-direction: column;
+                    .normal {
+                        letter-spacing: g.rem(1);
+                        font-size: g.rem(24);
+                    }
+                    .number {
+                        margin-top: -3px;
+                        margin-left: -5px;
+                        letter-spacing: g.rem(0.5);
+                        font-size: g.rem(40);
+                        .yen {
+                            margin-right: -3px;
+                            letter-spacing: g.rem(0.5);
+                        }
+                        .tax {
+                            margin-left: 6px;
+                            font-size: g.rem(24);
+                        }
+                    }
+                }
+                .item02 {
+                    display: flex;
+                    flex-direction: row;
+                    position: relative;
+                    width: 40px;
+                    height: 50px;
+                    margin: auto;
+                    margin-left: 88px;
+                    margin-right: 0;
+                    .arrow-image {
+                        position: absolute;
+                        content: "";
+                        width: 52px;
+                        height: 52px;
+                        top: 4px;
+                        left: 8px;
+                        background-image: url(../images/campaign/arrow-right.svg);
+                        //background-repeat: no-repeat;
+                        background-size: cover;
+                    }
+                    .arrow {
+                        position: relative;
+                        width: 8px;
+                        height: 50px;
+                        &:before {
+                            position: absolute;
+                            content: "";
+                            //right: 40px;
+                            width: 20px;
+                            height: 20px;
+                            border-right: 1px solid g.$color-brown;
+                            border-bottom: 1px solid g.$color-brown;
+                            transform: rotate(-45deg);
+                        }
+                    }
+                }
+                .item03 {
+                    display: flex;
+                    flex-direction: row;
+                    width: 100px;
+                    max-width: 198px;
+                    margin-left: 86px;
+                    font-weight: 400;
+                    .yen {
+                        font-size: g.rem(72);
+                        line-height: 72px;
+                        transform: translate( 0, 44px);
+                    }
+                    .number {
+                        font-size: g.rem(160);
+                        line-height: 100px;
+                        margin-left: -34px;
+                        font-weight: 400;
+                    }
+                    .serif {
+                        position: absolute;
+                        font-size: g.rem(24);
+                        white-space: nowrap;
+                        margin-top: -122px;
+                        margin-left: 13px;
+                        letter-spacing: g.rem( 2.5);
+                        &:before {
+                            position: absolute;
+                            content: "";
+                            width: 238px;
+                            height: 73px;
+                            top: -8px;
+                            left: -24px;
+                            background-image: url(../images/campaign/serif.svg);
+                            //background-repeat: no-repeat;
+                            background-size: cover;
+                        }
+                    }
+                }
+            }
+        }
+        .p-campaign__periodwrapper {
+            display: flex;
+            flex-direction: row;
+            margin-top: 43px;
+            margin-left: 60px;
+            .p-campaign__periodtitle {
+                font-size: g.rem(18);
+                border: 1px solid g.$color-black;
+                padding: 5px 14px 4px 15px;
+                letter-spacing: g.rem(1.6);
+            }
+            .p-campaign__periodschedule {
+                margin: auto;
+                margin-left: 20px;
+                font-size: g.rem(20);
+                letter-spacing: g.rem( 0.8);
+                .bra {
+                    margin-left: -9px;
+                }
+                .brar {
+                    margin-right: -11px;
+                }
+            }
+        }
+    }
+    .p-campaign__footer {
+        margin-top: 52px;
+        .p-button__cv {
+            display: flex;
+            justify-content: center;
+            margin: auto;
+            max-width: 600px;
+            height: 80px;
+            font-size: g.rem(28);
+            padding-left: 27px; //g.vwmax(27);
+            padding-top: 4px;
+            letter-spacing: g.rem(5);
+            &.arrow-right {
+                &:after {
+                    right: g.vwmax(41);
+                    top: 37%;
+                }
+            }
+        }
+    }
+    //  2個目の微調整
+    &.no02 {
+        margin-top: 97px;
+        padding-top: 62px;
+    }
+}
+
+//----------------------------------------
+//  レスポンシブ
+//----------------------------------------
+@include g.mq('-md') {
+    .p-campaign__background {
+        height: 612px;
+        aspect-ratio: 375/612;
+    }
+    .p-campaign__inner {
+        max-width: calc( 100% - 40px);
+        margin-top: 56px;
+        margin-bottom: 56px;
+        padding-top: 38px;
+        padding-bottom: 39px;
+        .p-campaign__header {
+            max-width: calc( 100% - 18px);
+            font-size: g.vwclampmax(14, 20, 375);
+            line-height: 56px;
+            letter-spacing: g.rem( 1);
+            text-indent: 3px;
+            &:before {
+                left: 0px;
+                top: 0;
+            }
+            &:after {
+                left: 0px;
+                bottom: 1px;
+            }
+        } // .p-campaign__header END
+        .p-campaign__content {
+            margin-top: 75px;
+            width: 100%;
+            max-width: 221px;
+            display: flex;
+            flex-direction: column;
+            .p-campaign__course {
+                text-align: left;
+                font-size: g.vwclampmax(12, 16, 375);
+                letter-spacing: g.rem(2.5);
+                margin-left: 2px;
+            }
+            .p-campaign__items {
+                margin-top: 13px;
+                margin-left: 2px;
+                text-align: left;
+                ul {
+                    display: flex;
+                    flex-direction: row;
+                    .item01 {
+                        display: flex;
+                        flex-direction: column;
+                        .normal {
+                            letter-spacing: g.rem(1);
+                            font-size: g.rem(16);
+                        }
+                        .number {
+                            margin-top: -3px;
+                            margin-left: -2px;
+                            letter-spacing: g.rem(0.5);
+                            font-size: g.rem(24);
+                            .yen {
+                                margin-right: -2px;
+                                letter-spacing: g.rem(0.5);
+                            }
+                            .tax {
+                                display: none;
+                            }
+                        }
+                    }
+                    .item02 {
+                        display: flex;
+                        flex-direction: row;
+                        position: relative;
+                        width: 24px;
+                        height: 26px;
+                        margin: auto;
+                        margin-left: 4px;
+                        margin-right: 0;
+                        .arrow-image {
+                            position: absolute;
+                            content: "";
+                            width: 24px;
+                            height: 26px;
+                            top: 1px;
+                            left: 8px;
+                            background-image: url(../images/campaign/arrow-right.svg);
+                            //background-repeat: no-repeat;
+                            background-size: cover;
+                        }
+                        .arrow {
+                            position: relative;
+                            width: 8px;
+                            height: 26px;
+                            &:before {
+                                position: absolute;
+                                content: "";
+                                //right: 40px;
+                                width: 20px;
+                                height: 20px;
+                                border-right: 1px solid g.$color-brown;
+                                border-bottom: 1px solid g.$color-brown;
+                                transform: rotate(-45deg);
+                            }
+                        }
+                    }
+                    .item03 {
+                        display: flex;
+                        flex-direction: row;
+                        width: 100px;
+                        max-width: 100px;
+                        margin-left: 43px;
+                        font-weight: 400;
+                        .yen {
+                            font-size: g.rem(40);
+                            line-height: 72px;
+                            transform: translate( 0, 6px);
+                        }
+                        .number {
+                            font-size: g.rem(72);
+                            line-height: 62px;
+                            margin-left: -19px;
+                            font-weight: 400;
+                        }
+                        .serif {
+                            position: absolute;
+                            font-size: g.rem(14);
+                            white-space: nowrap;
+                            margin-top: -89px;
+                            margin-left: 10px;
+                            letter-spacing: g.rem( 0.8);
+                            &:before {
+                                position: absolute;
+                                content: "";
+                                width: 124px;
+                                height: 38px;
+                                top: -3px;
+                                left: -9px;
+                                background-image: url(../images/campaign/serif.svg);
+                                //background-repeat: no-repeat;
+                                background-size: cover;
+                            }
+                        }
+                    }
+                }
+            } // .p-campaign__items {
+            .p-campaign__periodwrapper {
+                display: flex;
+                flex-direction: column;
+                margin-top: 22px;
+                margin-left: 0px;
+                .p-campaign__periodtitle {
+                    width: 131px;
+                    font-size: g.rem(14);
+                    border: 1px solid g.$color-black;
+                    padding: 3px 0 0 0;
+                    letter-spacing: g.rem(0.6);
+                    text-indent: -2px;
+                }
+                .p-campaign__periodschedule {
+                    margin: auto;
+                    margin-top: 8px;
+                    margin-left: 0px;
+                    font-size: g.rem(16);
+                    letter-spacing: g.rem( 0.3);
+                    white-space: nowrap;
+                    .bra {
+                        margin-left: -5px;
+                    }
+                    .brar {
+                        margin-right: -8px;
+                    }
+                }
+            }
+        } // .p-campaign__content
+        .p-campaign__footer {
+            margin-top: 31px;
+            .p-button__cv {
+                width: calc( 100% - 40px);
+                max-width: 295px;
+                height: 61px;
+                font-size: g.vwclampmax(12, 16, 375);
+                padding-left: 27px;
+                padding-top: 0px;
+                letter-spacing: g.rem(0.8);
+                &.arrow-right {
+                    &:after {
+                        display: none;
+                    }
+                }
+            }
+        } //.p-campaign__footer
+        //  2個目の微調整
+        &.no02 {
+            margin-top: 57px;
+            padding-top: 38px;
+        }
+    } //.p-campaign__inner {
+}

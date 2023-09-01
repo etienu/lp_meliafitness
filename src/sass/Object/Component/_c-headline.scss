@@ -1,0 +1,39 @@
+@use "../../global" as g;
+//--------------------------------
+//  見出し
+//--------------------------------
+.c-headline__h2 {
+    position: relative;
+    //display: inline-block;
+    font-weight: 400;
+    font-size: g.vwmax(32); //  30px
+    //    letter-spacing: global.vwmax(1.2); //0.12em;
+    letter-spacing: g.vwmax(3.2); //0.12em;
+    font-family: g.$font-eng;
+    //font-weight: ;
+    //margin-bottom: 16px;
+    color: g.$color-font-headlineh2-eng;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 0;
+}
+
+.c-headline__h3 {
+    position: relative;
+    //display: inline-block;
+    font-weight: 400;
+    font-size: g.vwmax(24); //2.4em; //  30px
+    line-height: g.vwmax(32.78); //3.278em; //32.78px;
+    letter-spacing: g.vwmax(2.8); //0.1em;
+    font-family: g.$font-eng;
+    //font-weight: ;
+    //margin-bottom: 16px;
+    color: g.$color-font-headlineh3-eng;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 0;
+}

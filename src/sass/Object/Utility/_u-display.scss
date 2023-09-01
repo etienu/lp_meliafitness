@@ -1,0 +1,93 @@
+@use "../../global" as global;
+
+/*--------------------------------------------------
+    u-display.scss
+    表示のON/OFF
+--------------------------------------------------*/
+
+.u-display__inline {
+    display: inline;
+}
+
+.u-display__inline-block {
+    display: inline-block;
+}
+
+.u-display__block {
+    display: block;
+}
+
+.u-display__sp {
+    @include global.mq('md-') {
+        display: none !important;
+    }
+}
+
+.u-display__pc {
+    @include global.mq('-lg') {
+        display: none !important;
+    }
+}
+
+.u-display__tab {
+    @include global.mq('-md') {
+        display: none !important;
+    }
+    @include global.mq('xl-') {
+        display: none !important;
+    }
+}
+
+.u-display__tab-pc {
+    @include global.mq('-md') {
+        display: none !important;
+    }
+}
+
+.u-display__sp-tab {
+    @include global.mq('md-') {
+        display: none !important;
+    }
+}
+
+.u-hidden__sp {
+    @include global.mq('-md') {
+        display: none !important;
+    }
+}
+
+.u-hidden__pc {
+    @include global.mq('md-') {
+        display: none !important;
+    }
+}
+
+.u-hidden__pc2 {
+    @include global.mq('xxl-') {
+        display: none !important;
+    }
+}
+
+.u-hidden__tab {
+    @include global.mq('md-lg') {
+        display: none !important;
+    }
+}
+
+.u-hidden__tab-pc {
+    @include global.mq('md-') {
+        display: none !important;
+    }
+}
+
+.u-hidden__sp-tab {
+    @include global.mq('-lg') {
+        display: none !important;
+    }
+}
+
+.u-hidden__sp-tab2 {
+    @include global.mq('-xl') {
+        display: none !important;
+    }
+}

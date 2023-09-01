@@ -1,0 +1,144 @@
+@use "../../global" as g;
+.p-problem {
+    position: relative;
+    margin-top: 96px;
+    display: flex;
+    flex-direction: column;
+    height: 481px;
+    position: relative;
+    background-color: g.$color-lightgray;
+}
+
+.p-problem__background {
+    width: 100%;
+    height: 481px;
+    position: absolute;
+    content: "";
+    width: 100%;
+    background-color: g.$color-lightgray;
+    background-image: url(../images/problem/problem01pc.jpg);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: cover;
+    aspect-ratio: 1440/481;
+    z-index: 0;
+    .p-problem__background__woman {
+        position: absolute;
+        content: "";
+        right: g.vwmax( 97);
+    }
+}
+
+.p-problem__inner {
+    max-width: 100%; //1440px;
+    margin-left: g.vwmax( 279);
+    display: flex;
+    justify-content: flex-start;
+    text-align: left;
+    z-index: 0;
+    .p-problem__title {
+        margin-top: 98px;
+        font-size: g.rem(24);
+        line-height: g.rem(36);
+        letter-spacing: g.rem(1.2);
+    }
+    .p-problem__list {
+        margin-top: 33px;
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: 21px;
+            .p-problem__item {
+                position: relative;
+                font-size: g.rem(18);
+                line-height: g.rem(27);
+                margin-left: 32px;
+                letter-spacing: g.rem(0.9);
+                &:before {
+                    position: absolute;
+                    content: "";
+                    width: 18px;
+                    height: 17px;
+                    left: -29px;
+                    top: 2px;
+                    background-image: url(../images/common/icon-check.svg);
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    aspect-ratio: 18/17;
+                }
+            }
+        }
+    }
+}
+
+//----------------------------------------
+//  レスポンシブ
+//----------------------------------------
+@include g.mq('-lg') {
+    .p-problem__inner {
+        $col: rgba(255, 255, 255, 0.2);
+        .p-problem__title {
+            text-shadow: 1px 1px 0 $col, -1px -1px 0 $col, -1px 1px 0 $col, 1px -1px 0 $col, 0px 1px 0 $col, 0-1px 0 $col, -1px 0 0 $col, 1px 0 0 $col;
+        }
+        .p-problem__item {
+            text-shadow: 1px 1px 0 $col, -1px -1px 0 $col, -1px 1px 0 $col, 1px -1px 0 $col, 0px 1px 0 $col, 0-1px 0 $col, -1px 0 0 $col, 1px 0 0 $col;
+        }
+    }
+}
+
+@include g.mq('-md') {
+    .p-problem {
+        height: auto;
+        margin-top: 80px;
+    }
+    .p-problem__background {
+        height: 226px;
+        position: relative;
+        background-image: url(../images/problem/problem01sp.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        aspect-ratio: 375/226;
+        z-index: 0;
+    }
+    .p-problem__inner {
+        margin: auto;
+        max-width: calc( 100% - 40px);
+        padding-bottom: 56px;
+        .p-problem__title {
+            margin-top: 40px;
+            font-size: g.rem(20);
+            line-height: g.rem(30);
+            letter-spacing: g.rem(1);
+        }
+        .p-problem__list {
+            margin-top: 25px;
+            ul {
+                gap: 11px;
+                .p-problem__item {
+                    font-size: g.rem(16);
+                    letter-spacing: g.rem(0.3);
+                    line-height: g.rem(24);
+                    height: 48px;
+                    &.no03 {
+                        margin-top: -9px; //15px;
+                        margin-bottom: -1px;
+                        &:before {
+                            top: 3px;
+                        }
+                    }
+                    &.no04 {
+                        &:before {
+                            top: 3px;
+                        }
+                    }
+                    &.no05 {
+                        margin-top: -1px;
+                        &:before {
+                            top: 3px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

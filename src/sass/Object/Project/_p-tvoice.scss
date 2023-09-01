@@ -1,0 +1,226 @@
+@use "../../global" as g;
+// 
+.p-tvoice {
+    margin-top: 92px;
+}
+
+.p-tvoice__inner {
+    max-width: 1440px;
+    margin: auto;
+}
+
+.p-tvoice__group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 77px;
+    gap: 80px;
+    .p-tvoice__item {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        height: 300px;
+        gap: g.vwmax(94);
+        .p-tvoice__textgroup {
+            display: flex;
+            flex-direction: column;
+            //justify-content: center;
+            margin-top: 55px;
+            width: g.vwmax( 513);
+            text-align: left;
+            .p-tvoice__title {
+                font-size: g.rem(24);
+                line-height: g.rem(36);
+                letter-spacing: g.rem( 2.3);
+            }
+            .p-tvoice__lead {
+                width: calc( 100% - 20px);
+                margin-top: 19px;
+                font-size: g.rem(16);
+                line-height: g.rem(32);
+                letter-spacing: g.rem(0.8);
+                &.no03 {
+                    margin-top: 19px;
+                    line-height: g.rem(24);
+                    width: 104%;
+                }
+            }
+            .p-tvoice__infogroup {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                margin-top: 13px;
+                margin-right: 8px;
+                font-size: g.rem(16);
+                line-height: g.rem(24);
+                gap: 7px;
+                .p-tvoice__age {}
+                .p-tvoice__occupation {}
+                .p-tvoice__gender {}
+                &.no03 {
+                    margin-right: 0px;
+                }
+            }
+            &.no02 {
+                margin-top: 72px;
+                transform: translate(8px, 0);
+            }
+            &.no03 {
+                margin-top: 68px;
+            }
+        }
+        .p-tvoice__image {
+            width: 100%;
+            height: 100%;
+            max-width: g.vwclampmax(320, 450);
+            aspect-ratio: 450/300;
+            &.no02 {
+                transform: translate(-2px, 0);
+            }
+        }
+        &.reverse {
+            .p-tvoice__textgroup {
+                order: 1;
+            }
+            .p-tvoice__image {
+                order: 0;
+            }
+        }
+    }
+}
+
+//----------------------------------------
+//  レスポンシブ
+//----------------------------------------
+@include g.mq('-xl') {
+    .p-tvoice__inner {
+        .p-tvoice__item {
+            max-width: 1000px;
+            gap: g.vwmax(50);
+            .p-tvoice__textgroup {
+                width: calc(50% - 20px);
+                //width: 50%;
+                margin-top: g.vwmax(28);
+                &.no02 {
+                    margin-top: g.vwmax(28);
+                }
+                &.no03 {
+                    margin-top: g.vwmax(28);
+                }
+            }
+        }
+    }
+}
+
+@include g.mq('-lg') {
+    .p-tvoice__inner {
+        width: calc(100% - 40px);
+        .p-tvoice__item {
+            gap: 20px;
+            .p-tvoice__textgroup {
+                //margin-top: g.vwmax(28);
+                width: calc( 60% - 20px);
+                .p-tvoice__lead {
+                    font-size: g.rem(14);
+                    &.no03 {
+                        width: 100%;
+                    }
+                }
+                &.no02 {
+                    //margin-top: g.vwmax(28);
+                }
+                &.no03 {
+                    //margin-top: g.vwmax(28);
+                }
+            }
+        }
+    }
+}
+
+@include g.mq('-md') {
+    .p-tvoice {
+        margin-top: 56px;
+    }
+    .p-tvoice__inner {
+        max-width: calc(100% - 40px);
+        .p-headline__h2 {
+            margin: auto;
+            font-size: g.rem(20);
+            letter-spacing: g.rem(1);
+            margin-left: -3px;
+            line-height: g.rem( 30);
+        }
+        .p-tvoice__group {
+            margin-top: 40px;
+            gap: 38px;
+        }
+        .p-tvoice__item {
+            flex-direction: column;
+            align-items: center;
+            height: auto;
+            gap: 20px;
+            .p-tvoice__textgroup {
+                width: auto;
+                order: 1;
+                margin-top: 3px;
+                .p-tvoice__title {
+                    font-size: g.rem(18);
+                    letter-spacing: g.rem(0.9);
+                    line-height: g.rem(28);
+                }
+                .p-tvoice__lead {
+                    width: 101%;
+                    margin-top: 8px;
+                    font-size: g.rem(16);
+                    line-height: 29px;
+                    letter-spacing: g.rem( 0.4);
+                }
+                .p-tvoice__infogroup {
+                    justify-content: flex-start;
+                    margin-top: 9px;
+                    gap: 6px;
+                    margin-left: 2px;
+                    font-size: g.rem(14);
+                }
+                &.no02 {
+                    margin-top: 3px;
+                    transform: translate(0px, 0);
+                    .p-tvoice__title {
+                        //line-height: 30px;
+                    }
+                    .p-tvoice__lead {
+                        margin-top: 12px;
+                        line-height: g.rem( 28.5);
+                    }
+                    .p-tvoice__infogroup {
+                        margin-top: 11px;
+                    }
+                }
+                &.no03 {
+                    margin-top: 3px;
+                    .p-tvoice__lead {
+                        width: 100%;
+                        margin-top: 12px;
+                        line-height: g.rem( 28.5);
+                    }
+                }
+            }
+            .p-tvoice__image {
+                order: 0;
+                //max-width: 100%;
+                max-width: g.vwclampmin(335, 450);
+                aspect-ratio: 335/224;
+                picture {
+                    width: 100%;
+                    img {
+                        width: 100%
+                    }
+                }
+            }
+            &.reverse {}
+            &.no03 {
+                margin-top: 1px;
+            }
+        }
+    }
+}

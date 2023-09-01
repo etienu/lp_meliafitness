@@ -1,0 +1,208 @@
+@use "../../global" as global;
+.p-pickup {
+    &-tag__wrapper {
+        //margin: 64px 0;
+        margin-top: global.vwmax(2);
+        padding: global.vwmax(66) 0 global.vwmax(128) 0;
+        background-color: global.$color-sky;
+        .item__wrapper {
+            margin: auto;
+            margin-top: global.vwmax(62);
+            width: 100%;
+            max-width: global.vwmax(1240);
+            height: 100%;
+            //max-height: global.vwmax(320);
+            background-color: global.$color-white;
+            padding-bottom: global.vwmax(26);
+            ul {
+                margin: auto;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+                //align-items: center;
+                position: relative;
+                li {
+                    .item {
+                        //height: 300px;
+                    }
+                    .separate {
+                        display: flex;
+                        align-items: center;
+                        position: relative;
+                        width: 1px;
+                        //height: global.vwmax(193); //100%;
+                        //background-color: global.$color-blue;
+                        height: 100%;
+                        margin: auto;
+                        &:before {
+                            position: absolute;
+                            content: "";
+                            width: 1px;
+                            // 299 - 193 = 106
+                            //                            height: global.vwmax(193);
+                            height: calc(100% - global.vwmax(106));
+                            background-color: global.$color-blue;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__tags__card {
+        margin-top: global.vwmax(36);
+        max-width: calc( global.vwmax( 320.666)); // (( 1240px - 2px) / 3) - ( 44px + 48px)
+        height: global.vwmax(258); //   calc( 320px - ( 36px + 26px))
+        height: fit-content;
+        .call {
+            display: inline-block;
+            position: relative;
+            font-size: global.vwmax( 20);
+            line-height: global.vwmax( 30);
+            //color: global.$color-blue;
+            &:before {
+                position: absolute;
+                content: "";
+                left: global.vwmax( -98);
+                top: global.vwmax( 6);
+                border-top: 1px solid global.$color-blue;
+                transform: rotate( 67deg);
+                width: global.vwmax( 30);
+                height: global.vwmax( 30);
+            }
+            &:after {
+                position: absolute;
+                content: "";
+                right: global.vwmax( -98);
+                top: global.vwmax( 6);
+                border-top: 1px solid global.$color-blue;
+                transform: rotate( -67deg);
+                width: global.vwmax( 30);
+                height: global.vwmax( 30);
+            }
+        }
+        .p-card__plantags__wrapper {
+            margin-top: global.vwmax( 20);
+            overflow-y: visible; //  隠してあるので表示
+            height: fit-content;
+            .tags__list {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                align-items: flex-start;
+                margin-top: global.vwmax( 38);
+                row-gap: global.vwmax( 5);
+                column-gap: global.vwmax( 16);
+                li {
+                    font-size: global.vwmax( 16);
+                    line-height: global.vwmax( 24);
+                    padding: global.vwmax( 5) global.vwmax( 5) global.vwmax( 4) global.vwmax( 4);
+                    border-radius: global.vwmax( 20);
+                }
+            }
+        }
+    }
+}
+
+//----------------------------------------
+//  レスポンシブ
+//----------------------------------------
+@include global.mq('sp') {
+    .p-pickup {
+        &-tag__wrapper {
+            //margin-top: global.vwsp(2);
+            padding: global.vwsp(112) 0 global.vwsp(71) 0;
+            .item__wrapper {
+                margin: auto;
+                margin-top: global.vwsp(30);
+                width: calc( 100% - global.vwsp(52));
+                //max-width: global.vwsp(1240);
+                height: 100%;
+                max-height: 100%;
+                background-color: global.$color-white;
+                padding-bottom: 0; //global.vwsp(26);
+                ul {
+                    margin: auto;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+                    align-items: center;
+                    position: relative;
+                    li {
+                        .item {}
+                        .separate {
+                            width: global.vwsp(229);
+                            height: 1px;
+                            &:before {
+                                position: absolute;
+                                content: "";
+                                width: global.vwsp(229);
+                                height: 1px;
+                                background-color: global.$color-blue;
+                            }
+                        }
+                    }
+                    //  固定でやるがタグが足りないだけなのでよくない
+                    .no01 {
+                        margin-bottom: global.vwsp(40); //  カンプに合わせる方
+                        margin-bottom: global.vwsp(-38); //  とりあえず下を合わせる方
+                    }
+                }
+            }
+        }
+        &__tags__card {
+            margin-top: global.vwsp(50);
+            max-width: calc( global.vwsp( 313)); // (( 1240px - 2px) / 3) - ( 44px + 48px)
+            height: auto; //   calc( 320px - ( 36px + 26px))
+            .call {
+                display: inline-block;
+                position: relative;
+                font-size: global.vwsp( 20);
+                line-height: global.vwsp( 30);
+                //color: global.$color-blue;
+                &:before {
+                    position: absolute;
+                    content: "";
+                    left: global.vwsp( -98);
+                    top: global.vwsp( 6);
+                    border-top: 1px solid global.$color-blue;
+                    transform: rotate( 67deg);
+                    width: global.vwsp( 30);
+                    height: global.vwsp( 30);
+                }
+                &:after {
+                    position: absolute;
+                    content: "";
+                    right: global.vwsp( -98);
+                    top: global.vwsp( 6);
+                    border-top: 1px solid global.$color-blue;
+                    transform: rotate( -67deg);
+                    width: global.vwsp( 30);
+                    height: global.vwsp( 30);
+                }
+            }
+            .p-card__plantags__wrapper {
+                margin-top: global.vwsp( 20);
+                margin-bottom: global.vwsp( 47);
+                height: auto;
+                .tags__list {
+                    width: calc( 100% - global.vwsp(42));
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    margin-top: global.vwsp( 29);
+                    row-gap: global.vwsp( 4.5);
+                    column-gap: global.vwsp( 16);
+                    li {
+                        font-size: global.vwsp( 16);
+                        line-height: global.vwsp( 24);
+                        padding: global.vwsp( 5) global.vwsp( 5) global.vwsp( 4) global.vwsp( 4);
+                        border-radius: global.vwsp( 20);
+                    }
+                }
+            }
+        }
+    }
+}

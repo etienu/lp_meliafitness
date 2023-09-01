@@ -1,0 +1,31 @@
+/*============================================================
+#   色
+#
+============================================================*/
+
+
+/*----------------------------------------
+        サイトの色指定
+----------------------------------------*/
+
+//----------------------------------------
+//      色
+//----------------------------------------
+$color-white: #FFFFFF;
+$color-lightgray: #FAFAFA;
+$color-gray:#E8E8E8;
+$color-brown: #8B6C3A;
+$color-black: #393327;
+//  文字色
+$color-font:$color-black;
+$color-font-w:$color-white; // white
+$color-font-a:$color-brown; // accent
+$color-font-d:$color-black; // dark
+//      場面別
+$color-border-gray:$color-gray;
+//$color-background : $color-black;
+$color-font-headlineh2-eng: $color-black;
+$color-font-headlineh2-jp: $color-black;
+$color-headlineh3-box: $color-black;
+$color-font-headlineh3-eng: $color-black;
+$color-font-headlineh3-jp: $color-black;

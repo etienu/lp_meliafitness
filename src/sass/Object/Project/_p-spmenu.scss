@@ -1,0 +1,155 @@
+@use "../../global" as g;
+//----------------------------------------
+//   SPメニュー
+//  ドロワー
+//----------------------------------------
+.p-spmenu {
+    position: fixed;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    left: 101vw;
+    width: 100%;
+    height: min( 100%, g.vwmax(861));
+    //background-color: g.$color-sky;
+    z-index: 400;
+    transition: left 0.3s;
+    opacity: 1;
+    &.open {
+        opacity: 1;
+        left: 0;
+    }
+}
+
+.p-spmenu__background {
+    display: none;
+}
+
+.p-spmenu__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: relative;
+    width: calc(100% - g.vwmax(63));
+    height: calc( 100% - g.vwmax(61));
+    //transform: translate(-2px, -1px); //  インナー幅と左右の位置が合わない
+    background-color: g.$color-white;
+    .p-spmenu__header {
+        width: 100%;
+        height: g.vwmax(166);
+        left: 0;
+        top: 0;
+        picture {
+            display: block;
+            margin-top: g.vwmax(-19);
+            width: g.vwmax(303);
+            aspect-ratio: 229/119;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+    .p-spmenu__list__wrapper {
+        margin-top: g.rem(17);
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        ul {
+            display: flex;
+            flex-direction: column;
+            width: calc(50% - g.rem(185.5)); //  calc(50% - (175px + 10px + 0.5px));
+            margin: g.rem(10) g.rem(10) g.rem(10) g.rem(175);
+            row-gap: g.rem(31); //g.vwmax(31);
+            li {
+                font-size: g.rem(22); //g.vwmax(22);
+                text-align: left;
+                letter-spacing: g.rem(1.7); //g.vwmax(1.7);
+                transition: 0.3s;
+                &:hover {
+                    opacity: 0.6;
+                    color: g.$color-brown;
+                }
+            }
+        }
+    }
+}
+
+//----------------------------------------
+//  レスポンシブ
+//----------------------------------------
+@include g.mq('-lg') {
+    .p-spmenu {
+        width: 100%;
+        max-width: 100%; //
+        height: calc(100% - 52px); //min( 100%, g.vwsp(553));
+        z-index: 400;
+        top: 68px;
+        //background-color: g.$color-white;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-end;
+        &.open {
+            //opacity: 1;
+            //left: 0;
+        }
+    }
+    .p-spmenu__background {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: calc(100% - 68px);
+        top: 68px;
+        z-index: 390;
+        background-color: rgba(139, 108, 58, 0.7);
+        transition: opacity 0.3s;
+        opacity: 0;
+        &.open {
+            opacity: 1;
+        }
+    }
+    .p-spmenu__inner {
+        display: flex;
+        position: relative;
+        width: g.vwsp( 250); //calc(100% - g.vwsp(20));
+        height: calc( 100% - g.rem(16));
+        //  ヘッダーぶん
+        //margin-top: 80px;
+        .p-spmenu__list__wrapper {
+            margin-top: g.rem(56);
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            ul {
+                display: flex;
+                flex-direction: column;
+                width: calc(100% - g.vwsp(40));
+                margin: auto; //g.vwsp(10) g.vwsp(10) g.vwsp(10) g.vwsp(175);
+                row-gap: g.rem(29); //vwsp(29);
+                li {
+                    font-size: g.vwclampmin(16, 24);
+                    text-align: center;
+                    letter-spacing: g.vwsp(0);
+                    margin-left: g.rem(0);
+                    letter-spacing: g.rem( 0.6);
+                }
+            }
+        } // .p-spmenu__list__wrapper
+        .p-spmenu__snswrapper {
+            margin-top: 54px;
+            width: 100%;
+            ul {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                gap: 26px;
+                margin-left: 1px;
+            }
+        }
+    } // .p-spmenu__inner
+}

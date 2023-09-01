@@ -1,0 +1,233 @@
+@use "../../global" as global;
+.p-whats {
+    &__inner {
+        margin: global.vwmax(69) 0;
+    }
+    &__catchcopy {
+        margin-top: global.vwmax(72);
+        margin-left: global.vwmax(2);
+        font-family: global.$font-title;
+        color: global.$color-font-lightblack;
+        font-size: global.vwmax(36);
+        line-height: global.vwmax(60);
+        letter-spacing: 0.1em;
+        //font-weight: 100;
+        span {
+            color: global.$color-blue;
+            font-size: global.vwmax(48);
+        }
+    }
+    &__lead {
+        padding-top: global.vwmax(3);
+        margin-left: global.vwmax(-17);
+        position: relative;
+        //margin-top: 54px;
+        padding-bottom: global.vwmax(53);
+        z-index: 0;
+        .background {
+            width: 100%;
+            height: 100%;
+            right: global.vwmax(2);
+            bottom: global.vwmax(-22);
+            position: absolute;
+            background-image: url(../images/what/logo.png);
+            background-repeat: no-repeat;
+            //  background-size: auto;    //  位置は合うがレスポンシブ時見切れる
+            background-size: contain;
+            background-position-x: right;
+            background-position-y: bottom;
+            z-index: -1;
+        }
+        font-weight: 500;
+        font-size: global.vwmax(18);
+        line-height: global.vwmax(40);
+        letter-spacing: 0.05em;
+        color: global.$color-font-lightblack;
+        p {
+            z-index: 1;
+            &.no01 {
+                margin-top: global.vwmax(56);
+            }
+            &.no02 {
+                margin-top: global.vwmax(40);
+            }
+            &.no03 {
+                margin-top: global.vwmax(40);
+            }
+        }
+    }
+    &__cv {
+        //  ボタンの上に書かれる呼びかけ演出
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: global.vwmax(20);
+        line-height: global.vwmax(30);
+        .call {
+            position: relative;
+            color: global.$color-blue;
+            letter-spacing: 0.08em;
+            &:before {
+                position: absolute;
+                content: "";
+                left: global.vwmax(-63);
+                top: global.vwmax(9);
+                border-top: 1px solid global.$color-blue;
+                transform: rotate( 45deg);
+                width: global.vwmax(40);
+                height: global.vwmax(40);
+            }
+            &:after {
+                position: absolute;
+                content: "";
+                right: global.vwmax(-63);
+                top: global.vwmax(9);
+                border-top: 1px solid global.$color-blue;
+                transform: rotate( -45deg);
+                width: global.vwmax(40);
+                height: global.vwmax(40);
+            }
+        }
+        .btn {
+            margin-top: global.vwmax(8);
+            max-width: global.vwmax(451);
+            max-height: global.vwmax(62);
+            text-indent: global.vwmax(-5);
+            padding-top: global.vwmax(17);
+            transition: 0.3s;
+            &:hover {}
+        }
+    }
+    &__slide {
+        margin-top: global.vwmax(54);
+        .whatsitem {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            max-width: global.vwmax(235);
+            height: global.vwmax(235);
+            background-color: global.$color-white;
+        }
+    }
+}
+
+//----------------------------------------
+//  レスポンシブ
+//----------------------------------------
+@include global.mq('sp') {
+    .p-whats {
+        &__inner {
+            margin: global.vwsp(30) 0;
+            .p-headline__h2 {
+                margin-left: global.vwsp(23);
+            }
+        }
+        &__catchcopy {
+            margin-top: global.vwsp(51);
+            margin-left: global.vwsp(4);
+            font-family: global.$font-title;
+            color: global.$color-font-lightblack;
+            font-size: global.vwsp(20);
+            line-height: global.vwsp(40);
+            letter-spacing: global.vwsp(3.1);
+            //font-weight: 100;
+            span {
+                color: global.$color-blue;
+                font-size: global.vwsp(33);
+            }
+        }
+        &__lead {
+            padding-top: global.vwsp(0);
+            margin-left: global.vwsp(3);
+            position: relative;
+            //margin-top: 54px;
+            padding-bottom: global.vwsp(53);
+            .background {
+                width: 100%;
+                height: 100%;
+                right: global.vwsp(-22);
+                bottom: global.vwsp(118);
+                position: absolute;
+                background-image: url(../images/what/logo.png);
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position-x: right;
+                background-position-y: bottom;
+            }
+            font-weight: 500;
+            font-size: global.vwsp(15);
+            line-height: global.vwsp(40);
+            letter-spacing: global.vwsp( 1.8);
+            color: global.$color-font-lightblack;
+            p {
+                &.no01 {
+                    margin-top: global.vwsp(25);
+                }
+                &.no02 {
+                    margin-top: global.vwsp(40);
+                }
+                &.no03 {
+                    margin-top: global.vwsp(40);
+                }
+            }
+        }
+        &__cv {
+            //  ボタンの上に書かれる呼びかけ演出
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: global.vwsp(16);
+            line-height: global.vwsp(26);
+            .call {
+                position: relative;
+                color: global.$color-blue;
+                margin-left: global.vwsp( -4);
+                letter-spacing: global.vwsp( 1.2);
+                &:before {
+                    position: absolute;
+                    content: "";
+                    left: global.vwsp(-63);
+                    top: global.vwsp(9);
+                    border-top: 1px solid global.$color-blue;
+                    transform: rotate( 45deg);
+                    width: global.vwsp(40);
+                    height: global.vwsp(40);
+                }
+                &:after {
+                    position: absolute;
+                    content: "";
+                    right: global.vwsp(-63);
+                    top: global.vwsp(9);
+                    border-top: 1px solid global.$color-blue;
+                    transform: rotate( -45deg);
+                    width: global.vwsp(40);
+                    height: global.vwsp(40);
+                }
+            }
+            .btn {
+                margin-top: global.vwsp(10);
+                margin-left: global.vwsp(-6);
+                max-width: global.vwsp(322);
+                width: global.vwsp(322);
+                height: global.vwsp(56);
+                max-height: global.vwsp(56);
+                text-indent: global.vwsp(-1);
+                padding-top: global.vwsp(26);
+                font-size: global.vwsp(16);
+            }
+        }
+        &__slide {
+            margin-top: global.vwsp( 48);
+            .whatsitem {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                max-width: global.vwsp(110);
+                height: global.vwsp(110);
+                background-color: global.$color-white;
+            }
+        }
+    }
+}

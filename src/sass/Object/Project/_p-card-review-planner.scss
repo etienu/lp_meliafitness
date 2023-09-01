@@ -1,0 +1,358 @@
+@use "../../global" as global;
+.p-card-review-planner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    z-index: 0;
+    padding-top: global.vwmax( 28);
+    padding-left: global.vwmax( 27);
+    .review__image {
+        width: global.vwmax( 229);
+        height: global.vwmax( 236);
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    .review__data__wrapper {
+        margin-top: global.vwmax( 6);
+        margin-left: global.vwmax( 32);
+        .review__data__head {
+            display: flex;
+            flex-direction: row;
+            .title__wrapper {
+                display: flex;
+                flex-direction: column;
+                .title {
+                    font-size: global.vwmax( 20);
+                    line-height: global.vwmax( 30);
+                    letter-spacing: -0.01em;
+                }
+                .score__wrapper {
+                    margin-top: global.vwmax( 10);
+                    font-size: global.vwmax( 14);
+                    line-height: global.vwmax( 21);
+                    color: global.$color-gray;
+                    display: flex;
+                    flex-direction: row;
+                    .score__title {}
+                    .score__stars {
+                        margin-top: global.vwmax(-1);
+                        margin-left: global.vwmax(9);
+                        font-size: global.vwmax(24);
+                        letter-spacing: 0.13em;
+                        color: global.$color-star-gold;
+                        span {
+                            color: global.$color-star-none;
+                        }
+                    }
+                }
+            }
+            .planner__wrapper {
+                margin-left: global.vwmax( 86);
+                margin-top: global.vwmax( 4);
+            }
+        }
+        .review__data__main {
+            text-align: left;
+            .review__data__body {
+                width: global.vwmax( 803);
+                height: global.vwmax( 81);
+                margin-top: global.vwmax( 10);
+                font-size: global.vwmax( 16);
+                line-height: global.vwmax( 24);
+                letter-spacing: -0.01em;
+            }
+            .reviewer__data {
+                position: relative;
+                display: flex;
+                flex-direction: row;
+                margin-top: global.vwmax( 8);
+                margin-left: global.vwmax( 23);
+                font-size: global.vwmax( 14);
+                line-height: global.vwmax( 21);
+                gap: global.vwmax(4);
+                &:before {
+                    position: absolute;
+                    content: "";
+                    width: global.vwmax( 18);
+                    height: global.vwmax( 18);
+                    left: global.vwmax( -23);
+                    top: global.vwmax( -1);
+                    background-image: url(../images/common/icon-pen.png);
+                }
+            }
+            .review__category {
+                display: inline-block;
+                margin-top: global.vwmax( 7);
+                margin-left: global.vwmax( 1);
+                padding: global.vwmax( 5) global.vwmax( 8) global.vwmax( 1) global.vwmax( 8);
+                background-color: global.$color-tag-orange;
+                color: global.$color-white;
+                font-size: global.vwmax( 11);
+                line-height: global.vwmax( 16);
+                letter-spacing: 0.08em;
+            }
+        }
+    }
+    .p-card__readmore {
+        right: global.vwmax( 65);
+        bottom: global.vwmax( 15);
+    }
+}
+
+//  ランキング
+.p-card-review-planner--ranking {
+    display: flex;
+    flex-direction: column;
+    width: global.vwmax( 368);
+    height: global.vwmax( 329);
+    background-color: global.$color-white;
+    padding-top: global.vwmax( 21);
+    padding-left: global.vwmax( 16);
+    .planner__wrapper {
+        //margin-left: global.vwmax( 86);
+        //margin-top: global.vwmax( 4);
+    }
+}
+
+.p-card-rp__data__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: left;
+    margin-top: global.vwmax(16);
+    &.ranking {
+        width: 100%;
+        margin-top: global.vwmax(10);
+    }
+}
+
+.p-card-rp__forplanner {
+    position: relative;
+    &.ranking {
+        margin-left: global.vwmax(15);
+        font-size: global.vwmax(12);
+    }
+    &:before {
+        position: absolute;
+        content: "";
+        width: global.vwmax( 14);
+        height: global.vwmax( 12);
+        left: global.vwmax( -17);
+        top: global.vwmax( 4);
+        background-image: url(../images/common/icon-comment.png);
+    }
+}
+
+.p-card-rp__title {
+    &.ranking {
+        margin-top: global.vwmax(2);
+        margin-left: global.vwmax(-2);
+        font-size: global.vwmax(13);
+        font-weight: bold;
+        letter-spacing: 0.06em;
+    }
+}
+
+.p-card-rp__body {
+    &.ranking {
+        width: global.vwmax(320);
+        margin-left: global.vwmax(-2);
+        font-size: global.vwmax(12);
+        line-height: global.vwmax(18);
+        height: global.vwmax(34);
+        overflow-y: hidden;
+    }
+}
+
+//================================================
+//----------------------------------------
+//  レスポンシブ
+//----------------------------------------
+@include global.mq('sp') {
+    .p-card-review-planner {
+        position: relative;
+        width: global.vwsp(358);
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        z-index: 0;
+        padding-top: global.vwsp( 16);
+        padding-left: global.vwsp( 14);
+        .review__image {
+            width: global.vwsp( 125);
+            height: global.vwsp( 144);
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            //  SP版
+            .planner__wrapper {
+                margin-top: global.vwsp( 46);
+            }
+        }
+        .review__data__wrapper {
+            width: calc(100% - global.vwsp( 139));
+            margin-top: global.vwsp( 0);
+            margin-left: global.vwsp( 10);
+            text-align: left;
+            .review__data__head {
+                display: flex;
+                flex-direction: row;
+                .title__wrapper {
+                    display: flex;
+                    flex-direction: column;
+                    .title {
+                        font-size: global.vwsp( 16);
+                        line-height: global.vwsp( 25);
+                        letter-spacing: -0.01em;
+                    }
+                    .score__wrapper {
+                        margin-top: global.vwsp( 6);
+                        font-size: global.vwsp( 12);
+                        line-height: global.vwsp( 21);
+                        color: global.$color-gray;
+                        display: flex;
+                        flex-direction: row;
+                        .score__title {}
+                        .score__stars {
+                            margin-top: global.vwsp(-2);
+                            margin-left: global.vwsp(5);
+                            font-size: global.vwsp(16);
+                            letter-spacing: global.vwsp(4);
+                            color: global.$color-star-gold;
+                            span {
+                                color: global.$color-star-none;
+                            }
+                        }
+                    }
+                }
+                .planner__wrapper {
+                    margin-left: global.vwsp( 86);
+                    margin-top: global.vwsp( 4);
+                }
+            }
+            .review__data__main {
+                text-align: left;
+                display: flex;
+                flex-direction: column;
+                .review__data__body {
+                    width: 100%; //global.vwsp( 803);
+                    height: global.vwsp( 60);
+                    margin-top: global.vwsp( 10);
+                    font-size: global.vwsp( 14);
+                    line-height: global.vwsp( 21);
+                    letter-spacing: -0.01em;
+                    overflow: hidden;
+                }
+                .reviewer__data {
+                    position: relative;
+                    display: flex;
+                    flex-direction: row;
+                    margin-top: global.vwsp( 6);
+                    margin-left: global.vwsp( 35);
+                    font-size: global.vwsp( 12);
+                    line-height: global.vwsp( 21);
+                    gap: global.vwsp(4);
+                    &:before {
+                        position: absolute;
+                        content: "";
+                        width: global.vwsp( 18);
+                        height: global.vwsp( 18);
+                        left: global.vwsp( -23);
+                        top: global.vwsp( -1);
+                        background-image: url(../images/common/icon-pen.png);
+                        background-size: cover;
+                    }
+                }
+                .review__category {
+                    order: -1;
+                    display: inline-block;
+                    width: fit-content;
+                    margin-top: global.vwsp( 5);
+                    margin-left: global.vwsp( 1);
+                    padding: global.vwsp( 5) global.vwsp( 8) global.vwsp( 1) global.vwsp( 8);
+                    background-color: global.$color-tag-orange;
+                    color: global.$color-white;
+                    font-size: global.vwsp( 11);
+                    line-height: global.vwsp( 16);
+                    letter-spacing: 0.08em;
+                }
+            }
+        }
+        .p-card__readmore {
+            right: global.vwsp( 55);
+            bottom: global.vwsp( 20);
+        }
+    }
+    //  ランキング
+    .p-card-review-planner--ranking {
+        display: flex;
+        flex-direction: column;
+        width: global.vwsp( 304);
+        height: global.vwsp( 292);
+        background-color: global.$color-white;
+        padding-top: global.vwsp( 16);
+        padding-left: global.vwsp( 10);
+        .planner__wrapper {
+            //margin-left: global.vwsp( 86);
+            //margin-top: global.vwsp( 4);
+        }
+    }
+    .p-card-rp__data__wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        text-align: left;
+        margin-top: global.vwsp(17);
+        &.ranking {
+            width: 100%;
+            margin-top: global.vwsp(10);
+        }
+    }
+    .p-card-rp__forplanner {
+        position: relative;
+        &.ranking {
+            margin-left: global.vwsp(16);
+            font-size: global.vwsp(12);
+        }
+        &:before {
+            position: absolute;
+            content: "";
+            width: global.vwsp( 14);
+            height: global.vwsp( 12);
+            left: global.vwsp( -17);
+            top: global.vwsp( 4);
+            background-image: url(../images/common/icon-comment.png);
+            background-size: cover;
+        }
+    }
+    .p-card-rp__title {
+        &.ranking {
+            margin-top: global.vwsp(4);
+            margin-left: global.vwsp(0);
+            font-size: global.vwsp(12);
+            font-weight: bold;
+            letter-spacing: global.vwsp(2);
+        }
+    }
+    .p-card-rp__body {
+        &.ranking {
+            width: auto; //global.vwsp(320);
+            margin-left: global.vwsp(-2);
+            font-size: global.vwsp(12);
+            line-height: global.vwsp(18);
+            height: auto; //global.vwsp(40);
+            overflow-y: visible;
+        }
+    }
+}

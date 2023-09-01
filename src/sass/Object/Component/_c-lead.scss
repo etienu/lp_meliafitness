@@ -1,0 +1,29 @@
+@use "../../global" as g;
+.c-lead {
+    color: g.$color-font;
+    font-family: g.$font-lead;
+    font-size: clamp(1rem, 2vw, g.rem(16));
+    font-weight: 400;
+    letter-spacing: g.rem( 1.6);
+    span {
+        font-family: g.$font-Lora;
+        letter-spacing: g.rem( 2);
+    }
+    &.left {
+        text-align: left;
+    }
+}
+
+.c-lead__hard {
+    font-family: g.$font-lead;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-weight: bold;
+}
+
+@include g.mq('-md') {
+    .c-lead {
+        font-size: g.rem(14);
+        line-height: g.rem(21);
+        letter-spacing: g.rem(1.4);
+    }
+}

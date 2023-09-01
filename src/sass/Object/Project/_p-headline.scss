@@ -1,0 +1,52 @@
+@use "../../global" as g;
+//  c-headline__h2と合わせる位置調整
+.p-headline__h2 {
+    //margin-left: g.vwmax(118); // 8.194vw; //118px;
+    display: block;
+    position: relative;
+    margin: auto;
+    text-indent: 4px;
+    letter-spacing: g.vwmax(3.2); //0.12em;
+    span {
+        font-family: g.$font-Lora;
+        letter-spacing: g.vwmax(5);
+    }
+    &.big {
+        //text-indent: 0px;
+        font-size: g.vwclampmax(30, 56); //g.rem(56);
+        letter-spacing: g.vwmax(4.1);
+    }
+    &.left {
+        text-align: left;
+    }
+    &.line {
+        &:after {
+            display: inline-block;
+            position: relative;
+            content: "";
+            margin-left: 28px;
+            //right: 32px;
+            top: 50%;
+            width: 340px;
+            height: 1px;
+            background-color: g.$color-black;
+        }
+    }
+}
+
+//  c-headline__h3と合わせる位置調整
+.p-headline__h3 {
+    margin-left: g.vwmax(146); //10.076vw; //130px;
+}
+
+//----------------------------------------
+//  レスポンシブ
+//----------------------------------------
+@include g.mq('-md') {
+    .p-headline__h2 {
+        margin-left: g.vwsp(27);
+    }
+    .p-headline__h3 {
+        margin-left: g.vwsp(32);
+    }
+}

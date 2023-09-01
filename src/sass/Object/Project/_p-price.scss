@@ -1,0 +1,205 @@
+@use "../../global" as g;
+// 
+.p-price {
+    position: relative;
+    .p-headline__h2 {
+        text-indent: 0px;
+    }
+    .c-lead {
+        //display: flex;
+        //justify-content: flex-start;
+        margin-top: 15px;
+        //margin-left: g.vwmax(191);
+    }
+}
+
+.p-price__background {
+    position: absolute;
+    content: "";
+    width: 657px;
+    height: 395px;
+    //background-color: g.$color-lightgray;
+    background-image: url(../images/price/price01pc.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    aspect-ratio: 657/395;
+    z-index: -1;
+}
+
+.p-price__inner {
+    padding-top: 77px;
+    padding-bottom: 96px;
+    max-width: 1440px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .p-price__content {
+        margin-top: 72px;
+        .p-price__pricewrapper {
+            display: flex;
+            flex-direction: row;
+            justify-content: center; //flex-start;
+            align-items: flex-end;
+            color: g.$color-brown;
+            letter-spacing: g.rem(3.5); //0.01rem;
+            margin-left: -71px;
+            //margin-left: 459px;
+            font-weight: 300;
+            .mid {
+                display: inline-block;
+                font-size: 40px;
+                line-height: 48px;
+            }
+            .yen {
+                margin-left: 16px;
+                font-size: 64px;
+                line-height: 66px;
+            }
+            .number {
+                font-size: 80px;
+                line-height: 80px;
+                margin-left: 2px;
+                letter-spacing: g.rem(9);
+                .comma {
+                    margin-left: -14px;
+                    letter-spacing: g.rem(-1.5);
+                }
+            }
+            .min {
+                font-size: 24px;
+                line-height: 38px;
+                margin-left: 2px;
+                letter-spacing: 2px;
+            }
+        }
+        .p-price__leadwrapper {
+            color: g.$color-brown;
+            .p-price__lead--main {
+                margin-top: 37px;
+                margin-left: 1px;
+                font-size: g.rem(24);
+                letter-spacing: g.rem(2.4);
+            }
+            .p-price__lead--sub {
+                margin-top: 27px;
+                margin-left: 2px;
+                font-size: g.rem(16);
+                letter-spacing: g.rem(1.7);
+            }
+        }
+        .p-price__supplement {
+            margin-top: 29px;
+            font-size: g.rem(24);
+            letter-spacing: g.rem( 0.6);
+            margin-left: 0px;
+        }
+    }
+}
+
+//----------------------------------------
+//  レスポンシブ
+//----------------------------------------
+@include g.mq('-md') {
+    .p-price {
+        .p-headline__h2 {
+            margin: auto;
+            //text-indent: 0px;
+            font-size: g.rem(28);
+            line-height: g.rem(42);
+        }
+        .c-lead {
+            font-size: g.rem(14);
+            line-height: g.rem(21);
+            margin-top: 0px;
+            margin-left: 1px;
+        }
+    }
+    .p-price__background {
+        position: absolute;
+        content: "";
+        width: 100%; //375px;
+        height: 100%; //226px;
+        //background-color: g.$color-lightgray;
+        background-image: url(../images/price/price01sp.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        aspect-ratio: 375/226;
+        z-index: -1;
+    }
+    .p-price__inner {
+        padding-top: 57px;
+        padding-bottom: 56px;
+        .p-price__content {
+            margin-top: 39px;
+            .p-price__pricewrapper {
+                display: flex;
+                flex-direction: row;
+                justify-content: center; //flex-start;
+                align-items: flex-end;
+                letter-spacing: g.rem(3.5); //0.01rem;
+                margin-left: -23px;
+                //margin-left: 459px;
+                font-weight: 300;
+                .mid {
+                    display: inline-block;
+                    font-size: 22px;
+                    line-height: 37px;
+                    letter-spacing: g.rem(2);
+                }
+                .yen {
+                    margin-left: 7px;
+                    font-size: 32px;
+                    line-height: 38px;
+                }
+                .number {
+                    font-size: 50px;
+                    line-height: 50px;
+                    margin-left: 0px;
+                    letter-spacing: g.rem(5);
+                    .comma {
+                        margin-left: -9px;
+                        letter-spacing: g.rem(0);
+                    }
+                }
+                .min {
+                    font-size: 16px;
+                    line-height: 36px;
+                    margin-left: -2px;
+                    letter-spacing: 2px;
+                }
+            }
+            .p-price__leadwrapper {
+                color: g.$color-brown;
+                //display: flex;
+                //flex-direction: column;
+                //justify-content: center;
+                margin-left: 2px;
+                .p-price__lead--main {
+                    margin: auto;
+                    width: 320px;
+                    margin-top: 33px;
+                    //margin-left: 29px;
+                    font-size: g.rem(18);
+                    letter-spacing: g.rem(1.8);
+                    line-height: g.rem(24);
+                }
+                .p-price__lead--sub {
+                    margin: auto;
+                    width: 335px;
+                    margin-top: 7px;
+                    //margin-left: 2px;
+                    font-size: g.rem(14);
+                    letter-spacing: g.rem(1.5);
+                    line-height: g.rem( 21);
+                }
+            }
+            .p-price__supplement {
+                margin-top: 34px;
+                font-size: g.rem(16);
+                letter-spacing: g.rem( 0.4);
+                margin-left: -2px;
+            }
+        }
+    }
+}

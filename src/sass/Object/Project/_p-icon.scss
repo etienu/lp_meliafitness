@@ -1,0 +1,62 @@
+@use "../../global" as g;
+.p-icon {}
+
+.p-icon__circle {
+    position: relative;
+    width: 38px;
+    height: 38px;
+    background-color: g.$color-black;
+    border-radius: 50%;
+    transition: 0.3s;
+    &:before {
+        position: absolute;
+        color: g.$color-font-w;
+        font-size: 20px;
+        left: 0;
+        top: 0;
+        transform: translate(50%, 50%);
+    }
+    &.fa-youtube {
+        &:before {
+            margin-top: 0px;
+            margin-left: -3px;
+        }
+    }
+    &.fa-twitter {
+        &:before {
+            margin-top: 0px;
+            margin-left: 0px;
+        }
+    }
+    &.fa-instagram {
+        &:before {
+            margin-top: 0px;
+            margin-left: 2px;
+        }
+    }
+    &:hover {
+        cursor: pointer;
+        opacity: 0.7;
+    }
+}
+
+.p-icon__youtube {
+    //    @extend .fa;
+    &:before {
+        content: "\f167";
+    }
+}
+
+.p-icon__twitter {
+    &:before {
+        content: "\f099";
+        font-size: 20px;
+        margin-top: 2px;
+    }
+}
+
+.p-icon__instagram {
+    &:before {
+        content: "\f16d";
+    }
+}

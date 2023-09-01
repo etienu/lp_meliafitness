@@ -1,0 +1,11 @@
+//  クリック不能処理を上書き
+.splide__track--draggable {
+    //    -webkit-touch-callout: none;
+    //    -webkit-user-select: none;
+    //    -ms-user-select: none;
+    //    user-select: none;
+    -webkit-touch-callout: auto;
+    -webkit-user-select: auto;
+    -ms-user-select: auto;
+    user-select: auto;
+}
